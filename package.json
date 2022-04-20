@@ -1,0 +1,63 @@
+{
+  "name": "@anchor-protocol/anchor-earn",
+  "version": "2.0.0",
+  "author": "Anchor Protocol",
+  "license": "MIT",
+  "repository": "github:Anchor-Protocol/anchor-earn",
+  "bugs": "https://github.com/Anchor-Protocol/anchor-earn/issues",
+  "homepage": "https://github.com/Anchor-Protocol/anchor-earn",
+  "engines": {
+    "node": ">=12"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --module commonjs",
+    "test": "jest --testTimeout 10000000",
+    "test-watch": "jest --testTimeout 100000000 --watch",
+    "doc": "typedoc",
+    "precommit": "auto-changelog",
+    "format": "prettier --write ./src/**/**/*.ts",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "prepublishOnly": "npm run build",
+    "integration-test": "ts-node ./integration-test/index.ts",
+    "prepublish": "npm run build",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/src/{**/*,*}.{ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0"
+    ]
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@terra-money/terra.js": "^3.0.0",
+    "node-gyp-build": "^4.3.0"
+  },
+  "devDependencies": {
+    "@ssen/eslint-config": "^2.0.1",
+    "@ssen/prettier-config": "^2.0.1",
+    "@terra-money/terra.js": "^3.0.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.9",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "auto-changelog": "^2.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "jest": "^27.2.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.2.1",
+    "typedoc": "^0.22.5",
+    "typescript": "^4.4.4"
+  }
+}
